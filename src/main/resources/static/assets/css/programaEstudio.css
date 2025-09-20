@@ -4,3 +4,20 @@
     overflow-x: hidden; /* evita scroll horizontal */
     padding-right: 5px; /* espacio para que no tape el scroll */
   }
+  #botonCursos {
+    float: left;
+    font-size: 11px;
+    color: #fff;
+    background: rgb(219,138,222);
+    background: linear-gradient(-145deg, rgba(0, 207, 255,1) 0%, rgba(0, 156, 255,1) 100%);
+    padding: 11px 30px;
+    display: inline-block;
+    border-radius: 5px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: all .3s;
+    transition: all .3s;
+    border: none;
+    outline: none;
+    margin-top: 15px;  
+  }

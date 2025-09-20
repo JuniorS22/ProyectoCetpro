@@ -154,7 +154,7 @@ body {
   font-size: 13px;
   color: #fff;
   background: rgb(219,138,222);
-  background: linear-gradient(-145deg, rgba(219,138,222,1) 0%, rgba(246,191,159,1) 100%);
+  background: linear-gradient(-145deg, rgba(0, 156, 255) 0%, rgba(0, 207, 255) 100%);
   padding: 12px 30px;
   display: inline-block;
   border-radius: 5px;
@@ -232,7 +232,7 @@ section {
 
 .section-heading h4 em {
   font-style: normal;
-  color: #dc8cdb;
+  color: #00CFFF;
 }
 
 .section-heading p {
@@ -246,8 +246,8 @@ header
 --------------------------------------------- 
 */
 .background-header {
-  background: rgb(219,138,222) !important;
-  background: linear-gradient(-145deg, rgba(219,138,222,1) 0%, rgba(246,191,159,1) 100%) !important;
+  background: rgb(23, 19, 255) !important;
+  background: linear-gradient(-145deg, rgb(0, 156, 255) 0%, rgb(0, 207, 255) 100%) !important;
   height: 80px!important;
   position: fixed!important;
   top: 0!important;
@@ -732,7 +732,7 @@ section.main-banner {
 
 .main-banner .header-text h2 em {
   font-style: normal;
-  color: #dc8cdb;
+  color: #00aeff;
 }
 
 .main-banner .main-button-gradient {
@@ -844,12 +844,12 @@ section.our-courses .naccs .menu div {
   vertical-align: middle;
   font-weight: 900;
   transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
-  border: 3px solid rgba(219,138,222,0.5);
+  border: 3px solid rgba(0, 207, 255,1);
 }
 
 section.our-courses .naccs .menu div.active {
-  color: #dc8cdb;
-  border: 3px solid rgba(219,138,222,1);
+  color: #009CFF;
+  border: 3px solid rgba(0, 207, 255,1);
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
 }
 
@@ -1133,7 +1133,7 @@ section.contact-us .contact-info .icon i {
   line-height: 50px;
   border-radius: 50%;
   background: rgb(219,138,222);
-  background: linear-gradient(-145deg, rgba(219,138,222,1) 0%, rgba(246,191,159,1) 100%);
+  background: linear-gradient(-145deg, rgba(0, 207, 255) 0%, rgba(0, 156, 255) 100%);
   color: #fff;
 }
 
@@ -1145,7 +1145,7 @@ section.contact-us .contact-info h4 {
 
 section.contact-us .contact-info span {
   font-size: 15px;
-  color: #dc8cdb;
+  color: #00CFFF;
   font-weight: 700;
 }
 
@@ -1201,7 +1201,7 @@ section.contact-us #contact button {
   font-size: 13px;
   color: #fff;
   background: rgb(219,138,222);
-  background: linear-gradient(-145deg, rgba(219,138,222,1) 0%, rgba(246,191,159,1) 100%);
+  background: linear-gradient(-145deg, rgba(0, 207, 255,1) 0%, rgba(0, 156, 255,1) 100%);
   padding: 12px 30px;
   display: inline-block;
   border-radius: 5px;
@@ -1211,6 +1211,7 @@ section.contact-us #contact button {
   transition: all .3s;
   border: none;
   outline: none;
+  margin-top: 15px;  
 }
 
 section.contact-us #contact button:hover {
@@ -1234,7 +1235,7 @@ section.contact-us ul.social-icons li a {
   text-align: center;
   line-height: 44px;
   background-color: #fff;
-  color: #dc8cdb;
+  color: #00CFFF;
   border-radius: 50%;
   transition: all .5s;
 }

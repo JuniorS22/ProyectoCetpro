@@ -40,12 +40,12 @@ https://templatemo.com/tm-573-eduwell
                 <nav class="main-nav">
                   <!-- ***** Logo Start ***** -->
                   <a href="index.html" class="logo">
-                      <img src="assets/images/templatemo-eduwell.png" alt="EduWell Template">
+                      <img src="assets/images/logoSeñorCaridad.png" style="max-width: 50px; height: auto;" alt="EduWell Template">
                   </a>
                   <!-- ***** Logo End ***** -->
                   <!-- ***** Menu Start ***** -->
                   <ul class="nav">
-                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="index.html" class="active">Inicio</a></li>
                     <li><a href="index.html">Servicios</a></li>
                     <li><a href="index.html">Programas de estudio</a></li>
                     <li class="has-sub">
@@ -74,24 +74,24 @@ https://templatemo.com/tm-573-eduwell
         <div class="col-lg-8">
           <div id="map">
           	<!-- You just need to go to Google Maps for your own map point, and copy the embed code from Share -> Embed a map section -->
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7151.84524236698!2d-122.19494600413192!3d47.56605883252286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5490695e625f8965%3A0xf99b055e76477def!2sNewcastle%20Beach%20Park%20Playground%2C%20Bellevue%2C%20WA%2098006%2C%20USA!5e0!3m2!1sen!2sth!4v1644335269264!5m2!1sen!2sth" width="100%" height="420px" frameborder="0" style="border:0; border-radius: 15px; position: relative; z-index: 2;" allowfullscreen=""></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.404285697872!2d-77.59896692420163!3d-11.08321652471115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9107207785a13ee5%3A0x2f8d0a84f391f008!2sAv.%20Peralvillo%202692%2C%20Santa%20Mar%C3%ADa%2015138!5e0!3m2!1ses-419!2spe!4v1758332097666!5m2!1ses-419!2spe" width="100%" height="420px" frameborder="0" style="border:0; border-radius: 15px; position: relative; z-index: 2;" allowfullscreen=""></iframe>
             <div class="row">
               <div class="col-lg-4 offset-lg-1">
                 <div class="contact-info">
                   <div class="icon">
                     <i class="fa fa-phone"></i>
                   </div>
-                  <h4>Phone</h4>
-                  <span>010-020-0340</span>
+                  <h4>Telefono</h4>
+                  <span>984 476 594</span>
                 </div>
               </div>
               <div class="col-lg-4">
                 <div class="contact-info">
                   <div class="icon">
-                    <i class="fa fa-phone"></i>
+                    <li><a href="https://www.facebook.com/profile.php?id=100041500634427&rdid=6Zp5LpO4wrw22yg7&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1H4mYTPUXv%2F#"><i class="fa fa-facebook"></i></a></li>
                   </div>
-                  <h4>Mobile</h4>
-                  <span>090-080-0760</span>
+                  <h4>FACEBOOK</h4>
+                  <span>Cetpro Parroquial Señorde la Caridad </span>
                 </div>
               </div>
             </div>
@@ -103,13 +103,13 @@ https://templatemo.com/tm-573-eduwell
               <div class="col-lg-12">
                 <div class="section-heading">
                   <h6>Registrate</h6>
-                  <h4>en <em>PROGRAMA DE ESTUDIO </em></h4>
+                  <h4>en <em id="nombrePrograma">PROGRAMA DE ESTUDIO</em></h4>
                   <p>Tu futuro empieza aquí. Completa tu registro y despega hacia nuevas metas.</p>
                 </div>
               </div>
               <div class="col-lg-12">
                 <fieldset>
-                  <input type="name" name="name" id="apellidosNombres" placeholder="Apellidos y nombres" autocomplete="on" required>
+                  <input type="text" name="name" id="apellidosNombres" placeholder="Apellidos y nombres*" autocomplete="on" required>
                 </fieldset>
               </div>
 
@@ -120,7 +120,7 @@ https://templatemo.com/tm-573-eduwell
               </div>
               <div class="col-lg-12">
                 <fieldset>
-                  <input type="number" name="edad" id="edad" placeholder="Edad" autocomplete="on" required>
+                  <input type="number" name="edad" id="edad" placeholder="Edad*" autocomplete="on" required>
                 </fieldset>
               </div>
               <div class="col-lg-12">
@@ -130,50 +130,42 @@ https://templatemo.com/tm-573-eduwell
               </div>
               <div class="col-lg-12">
                 <fieldset>
-                  <input name="telefono" id="telefono" placeholder="Telefono">
+                  <input name="telefono" id="telefono" placeholder="Telefono*" required>
                 </fieldset>
               </div>
               <div class="col-lg-12">
                 <fieldset>
-                  <input type="text" name="email" id="correo" pattern="[^ @]*@[^ @]*" placeholder="Correo" required="">
+                  <input type="text" name="email" id="correo" pattern="[^ @]*@[^ @]*" placeholder="Correo*" required="">
                 </fieldset>
               </div>
               <div class="col-lg-12">
                 <fieldset>
-                  <input name="especialidad" id="especialidad" placeholder="Especialidad">
+                  <input name="especialidad" id="especialidad" placeholder="Especialidad*" readonly>
                 </fieldset>
               </div>
               <div class="col-lg-12">
                 <fieldset>
                   <select class="col-lg-12" name="turno" id="turno" required>
-                    <option class="col-lg-12" value="" disabled selected>Elige un turno</option>
-                    <option value="mañana">Mañana</option>
-                    <option value="tarde">Tarde</option>
-                    <option value="noche">Noche</option>
+                    <option class="col-lg-12" value="" disabled selected>Elige un turno*</option>
+                    <option value="mañana">Mañana de 8:30 am a 1:00 pm</option>
+                    <option value="tarde">Tarde de 2:00 pm a 6:30 pm </option>
+                    <option value="noche">Noche de 6:30 pm a 11:00 pm</option>
                   </select>
                 </fieldset>
               </div>
+              <div id="mensaje" style="color: green; margin-top: 10px;"></div>
               <div class="col-lg-12">
                 <fieldset>
-                  <button type="button" href="https://templatemo.com" id="form-submit" class="main-gradient-button">Registrar</button>
+                  <button type="submit" id="form-submit" class="main-gradient-button">Registrar</button>
                 </fieldset>
               </div>
             </div>
           </form>
         </div>
+      
         <div class="col-lg-12">
-          <ul class="social-icons">
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="#"><i class="fa fa-rss"></i></a></li>
-            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-          </ul>
-        </div>
-        <div class="col-lg-12">
-          <p class="copyright">Copyright © 2022 EduWell Co., Ltd. All Rights Reserved. 
-          
-          <br>Design: <a rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
+          <p class="copyright">Copyright © 2025 
+          <br>Creado por: <a rel="sponsored" target="_blank"> Alumnos de Wendy Salinas Rojas</a></p>
         </div>
       </div>
     </div>
@@ -236,60 +228,78 @@ https://templatemo.com/tm-573-eduwell
         $(window).scroll(function () {
           checkSection();
         });
-
+        
         // LLamando a la API de registrar
-  document.getElementById("form-submit").addEventListener("click", async (event) => {
-    event.preventDefault(); // Evita que el formulario recargue la página
+      document.getElementById("form-submit").addEventListener("click", async (event) => {
+      event.preventDefault(); // Evita que el formulario recargue la página
 
-    // Obtener valores del formulario
-    const data = {
-      apellidosNombres: document.getElementById("apellidosNombres").value,
-      dni: document.getElementById("dni").value,
-      edad: document.getElementById("edad").value,
-      direccion: document.getElementById("direccion").value,
-      telefono: document.getElementById("telefono").value,
-      correo: document.getElementById("correo").value,
-      especialidad: document.getElementById("especialidad").value,
-      turno: document.getElementById("turno").value
-    };
+      // Obtener valores del formulario
+      const data = {
+        apellidosNombres: document.getElementById("apellidosNombres").value,
+        dni: document.getElementById("dni").value,
+        edad: document.getElementById("edad").value,
+        direccion: document.getElementById("direccion").value,
+        telefono: document.getElementById("telefono").value,
+        correo: document.getElementById("correo").value,
+        especialidad: document.getElementById("especialidad").value,
+        turno: document.getElementById("turno").value
+      };
 
-    try {
-      //const response = await fetch("http://localhost:8080/registrar", {
+      try {
+        //const response = await fetch("http://localhost:8080/registrar", {
         const response = await fetch("https://proyectocetpro-production.up.railway.app/registrar", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          const result = await response.json();
+          document.getElementById("mensaje").innerText = "✅ Registro exitoso";
+
+          console.log("Respuesta del servidor:", result);
+          // 🔄 Redirigir después de 1 segundo
+          setTimeout(() => {
+            window.location.href = "index.html";
+          }, 1000);
+            } else {
+              document.getElementById("mensaje").innerText = "❌ Error al registrar, complete los datos obligatorios";
+            }
+          
+          } catch (error) {
+            console.error("Error en la petición:", error);
+            document.getElementById("mensaje").innerText = "⚠️ No se pudo conectar con el servidor";
+          }
+        });
+
+
+        // Recuperar de localStorage al cargar la página
+        document.addEventListener("DOMContentLoaded", () => {
+        const especialidad = localStorage.getItem("especialidadSeleccionada");
+        console.log("Activo guardado:", especialidad);
+
+        if (especialidad) {
+          // 1. Poner en input hidden
+          const input = document.getElementById("especialidad");
+          if (input) input.value = especialidad;
+
+          // 2. Mostrar en tu h4
+          const nombrePrograma = document.getElementById("nombrePrograma");
+          if (nombrePrograma) nombrePrograma.textContent = especialidad;
+
+          // 3. (Opcional) Marcar el div correcto en el menú
+          document.querySelectorAll(".menu .gradient-border").forEach(el => {
+            if (el.textContent.trim() === especialidad) {
+              el.classList.add("active");
+            } else {
+              el.classList.remove("active");
+            }
+          });
+        }
       });
-
-      if (response.ok) {
-        const result = await response.json();
-        document.getElementById("mensaje").innerText = "✅ Registro exitoso";
-
-        console.log("Respuesta del servidor:", result);
-
-        // 🔄 Esperar 1 segundo y redirigir a la página principal
-        setTimeout(() => {
-        window.location.href = "/index.html"; // o "/" o la ruta que necesites
-      }, 800);
-
-      } else {
-        document.getElementById("mensaje").innerText = "❌ Error al registrar";
-      }
-    } catch (error) {
-      console.error("Error en la petición:", error);
-      document.getElementById("mensaje").innerText = "⚠️ No se pudo conectar con el servidor";
-    }
-  });
-
-    // Recuperar de localStorage al cargar la página
-  document.addEventListener("DOMContentLoaded", () => {
-    const especialidad = localStorage.getItem("especialidadSeleccionada");
-    if (especialidad) {
-      document.getElementById("especialidad").value = especialidad;
-    }
-  });
+  
     </script>
 
 </body>
