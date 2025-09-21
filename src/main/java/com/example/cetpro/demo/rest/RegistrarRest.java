@@ -1,9 +1,11 @@
  package com.example.cetpro.demo.rest;
 
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -51,7 +53,7 @@ public class RegistrarRest {
         if(permitido){
             Twilio.init(as, at);
             Message messageMaster = Message.creator(
-              new PhoneNumber("whatsapp:+51954303346"),
+              new PhoneNumber("whatsapp:+51997315856"),
               new PhoneNumber("whatsapp:+14155238886"),
               "Hola Maestro!, alerta de inscripción:\n" +
                       "*Programa de estudio:* " + registroAlumno.getEspecialidad() + "\n" +
@@ -71,17 +73,18 @@ public class RegistrarRest {
     }
 
     @PostMapping("/enviar-correo")
-    public void registrarCorreo(@RequestBody RegistroEntidad consulta) {
-        Resend resend = new Resend("re_5sQmdo6j_A8MhbVJVwLYWGga8kN6DdRAf");
+    public Map<String, String> registrarCorreo(@RequestBody RegistroEntidad consulta) {
+        //Resend resend = new Resend("re_5sQmdo6j_A8MhbVJVwLYWGga8kN6DdRAf");mio
+        Resend resend = new Resend("re_jGLrrAuR_G8LonVVru6yZK7wRoBcFvpqH");
         SendEmailRequest sendEmailRequest = SendEmailRequest.builder()
         .from("onboarding@resend.dev")
-        .to("juniorsalinas200022@gmail.com")
-        .subject("Duda enviada desde el landing page")
-        .html("<p>Datos: <strong>correo: "+ consulta.getCorreo()+" </strong></p>" + "\n" + "<p> Nombres : " +consulta.getApellidosNombres()+"</p>" +"<p> Mensaje: "+ consulta.getMensaje() + "</p>")
+        .to("wendy1990mjl@gmail.com")
+        .subject("⚠️⚠️⚠️ Consulta enviada desde la Pagina")
+        .html("<p>Datos: </p><strong>correo: "+ consulta.getCorreo()+" </strong></p>" + "\n" + "<p><strong> Nombres : " +consulta.getApellidosNombres()+"</strong></p>" +"<p><strong> Mensaje: "+ consulta.getMensaje() + "</strong></p>")
         .build();
 
         SendEmailResponse data = resend.emails().send(sendEmailRequest);
-      
+        return Map.of("mensaje", "Ok");
     }
     @PostMapping("/registrar")
     public Map<String, String> registrar(@Valid @RequestBody RegistroEntidad registroAlumno) {
