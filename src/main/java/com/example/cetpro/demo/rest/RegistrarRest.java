@@ -80,7 +80,7 @@ public class RegistrarRest {
         .from("onboarding@resend.dev")
         .to("wendy1990mjl@gmail.com")
         .subject("⚠️⚠️⚠️ Consulta enviada desde la Pagina")
-        .html("<p>Datos: </p><strong>correo: "+ consulta.getCorreo()+" </strong></p>" + "\n" + "<p><strong> Nombres : " +consulta.getApellidosNombres()+"</strong></p>" +"<p><strong> Mensaje: "+ consulta.getMensaje() + "</strong></p>")
+        .html("<p>Datos enviados desde el formulario: </p><strong>correo: "+ consulta.getCorreo()+" </strong></p>" + "\n" + "<p><strong> Nombres : " +consulta.getApellidosNombres()+"</strong></p>" +"<p><strong> Mensaje: "+ consulta.getMensaje() + "</strong></p>")
         .build();
 
         SendEmailResponse data = resend.emails().send(sendEmailRequest);

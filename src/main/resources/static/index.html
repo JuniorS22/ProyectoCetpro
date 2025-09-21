@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/lightbox.css">
     <link rel="stylesheet" href="assets/css/programaEstudio.css">
+    <link rel="stylesheet" href="fontello.css">
 <!--
 
 TemplateMo 573 EduWell
@@ -270,7 +271,6 @@ https://templatemo.com/tm-573-eduwell
                       <div>
                         <div class="left-image">
                           <img src="assets/images/courses-02.jpg" alt="">
-                          <div class="price"><h6>$0</h6></div>
                         </div>
                         <div class="right-content">
                           <h4>Estampado de prendas de vestir</h4>
@@ -287,8 +287,7 @@ https://templatemo.com/tm-573-eduwell
                     <li>
                       <div>
                         <div class="left-image">
-                          <img src="assets/images/courses-03.jpg" alt="">
-                          <div class="price"><h6>$0</h6></div>
+                          <img src="assets/images/courses-03.jpg" alt="">                
                         </div>
                         <div class="right-content">
                           <h4>Manualidades artesanales</h4>
@@ -306,7 +305,6 @@ https://templatemo.com/tm-573-eduwell
                       <div>
                         <div class="left-image">
                           <img src="assets/images/courses-04.jpg" alt="">
-                          <div class="price"><h6>$76</h6></div>
                         </div>
                         <div class="right-content">
                           <h4>Asistencia en electricidad</h4>
@@ -323,8 +321,7 @@ https://templatemo.com/tm-573-eduwell
                       <li>
                         <div>
                           <div class="left-image">
-                            <img src="assets/images/courses-04.jpg" alt="">
-                            <div class="price"><h6>$76</h6></div>
+                            <img src="assets/images/courses-05.jpg" alt="">
                           </div>
                           <div class="right-content">
                             <h4>Corte y ensamblaje </h4>
@@ -341,8 +338,7 @@ https://templatemo.com/tm-573-eduwell
                         <li>
                           <div>
                             <div class="left-image">
-                              <img src="assets/images/courses-04.jpg" alt="">
-                              <div class="price"><h6>$76</h6></div>
+                              <img src="assets/images/courses-06.jpg" alt="">
                             </div>
                             <div class="right-content">
                               <h4>Costura y acabado</h4>
@@ -359,8 +355,7 @@ https://templatemo.com/tm-573-eduwell
                           <li>
                             <div>
                               <div class="left-image">
-                                <img src="assets/images/courses-04.jpg" alt="">
-                                <div class="price"><h6>$76</h6></div>
+                                <img src="assets/images/courses-07.jpg" alt="">
                               </div>
                               <div class="right-content">
                                 <h4>Panadería y pastelería</h4>
@@ -377,8 +372,7 @@ https://templatemo.com/tm-573-eduwell
                             <li>
                               <div>
                                 <div class="left-image">
-                                  <img src="assets/images/courses-04.jpg" alt="">
-                                  <div class="price"><h6>$76</h6></div>
+                                  <img src="assets/images/courses-08.jpg" alt="">
                                 </div>
                                 <div class="right-content">
                                   <h4>Peluquería y barbería</h4>
@@ -395,8 +389,7 @@ https://templatemo.com/tm-573-eduwell
                               <li>
                                 <div>
                                   <div class="left-image">
-                                    <img src="assets/images/courses-04.jpg" alt="">
-                                    <div class="price"><h6>$76</h6></div>
+                                    <img src="assets/images/courses-09.jpg" alt="">
                                   </div>
                                   <div class="right-content">
                                     <h4>Operaciones de producción de alimentos y bebidas</h4>
@@ -572,12 +565,14 @@ https://templatemo.com/tm-573-eduwell
         </div>
         <div class="col-lg-12">
           <p class="copyright">Copyright © 2025 
-          <br>Creado por: <a rel="sponsored" target="_blank"> Alumnos de Wendy Salinas Rojas</a></p>
+          <br>Creado por: <a rel="sponsored" target="_blank"> Alumnos de M(a). Wendy Salinas Rojas</a></p>
         </div>
       </div>
     </div>
   </section>
-
+  <a href="https://wa.me/51984476594" class="btn-wsp" target="_blank">
+    <i class="fa fa-whatsapp icono"></i>
+  </a>
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -665,37 +660,50 @@ https://templatemo.com/tm-573-eduwell
       //Enviar correo:
 
       document.getElementById("form-submit").addEventListener("click", async (event) => {
-        event.preventDefault(); // Evita que el formulario se envíe normalmente
+        const correoForm = document.getElementById("email").value;
+        const nombreForm= document.getElementById("name").value;
+        const mensajeForm= document.getElementById("message").value;
 
-        // Obtener valores de los inputs (ajústalo según tu formulario)
-        const data = {
-          apellidosNombres: document.getElementById("name").value,
-            correo: document.getElementById("email").value,
-            mensaje: document.getElementById("message").value
-        };
+            console.log("Entre boton consultar")
+            event.preventDefault(); // Evita que el formulario se envíe normalmente
 
-        try {
-            //const response = await fetch("https://proyectocetpro-production.up.railway.app/enviar-correo", { 
-            const response = await fetch("http://localhost:8080/enviar-correo", { 
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data)
-            });
+             // Validación: no permitir vacíos
+              if (correoForm || nombreForm || mensajeForm) {
+              
+                // Obtener valores de los inputs (ajústalo según tu formulario)
+                const data = {
+                  apellidosNombres: document.getElementById("name").value,
+                    correo: document.getElementById("email").value,
+                    mensaje: document.getElementById("message").value
+                };
 
-            if (response.ok) {
-                const result = await response.json();
-                document.getElementById("respuestaApi").innerText = "✅ Mensaje enviado correctamente";
-                limpiarFormularioCorreo();
-                console.log(result);
-            } else {
-                document.getElementById("respuestaApi").innerText = "❌ Error al enviar el mensaje, complete todos los datos del formulario por favor";
-            }
-        } catch (error) {
-            console.error("Error en la petición:", error);
-            document.getElementById("respuestaApi").innerText = "⚠️ No se pudo conectar con el servidor";
-        }
+                try {
+                    const response = await fetch("https://proyectocetpro-production.up.railway.app/enviar-correo", { 
+                    //const response = await fetch("http://localhost:8080/enviar-correo", { 
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    if (response.ok) {
+                        const result = await response.json();
+                        document.getElementById("respuestaApi").innerText = "✅ Mensaje enviado correctamente";
+                        limpiarFormularioCorreo();
+                        console.log(result);
+                    } else {
+                        document.getElementById("respuestaApi").innerText = "❌ Error al enviar el mensaje, complete todos los datos del formulario por favor";
+                    }
+                } catch (error) {
+                    console.error("Error en la petición:", error);
+                    document.getElementById("respuestaApi").innerText = "⚠️ No se pudo conectar con el servidor";
+                }
+            }else{
+                document.getElementById("respuestaApi").innerText = "⚠️ Todos los campos del formulario son obligatorios";
+                document.getElementById("respuestaApi").style.color = "red";
+                console.log(":0")
+              }
     });
     function limpiarFormularioCorreo(){
       
