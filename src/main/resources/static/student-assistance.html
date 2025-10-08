@@ -70,41 +70,41 @@ https://templatemo.com/tm-573-eduwell
       </div>
   </header>
 
-  <section class="contact-us">
-    <div class="container">
-      <div class="row">
+  <section class="contact-us"  >
+    <div class="center-wrapper" >
+      <div class="row justify-content-center" >
         <div class="col-lg-4">
-          <form id="contact" action="" method="post">
+          <form id="contact" action="" method="post" >
             <div class="row">
               <div class="col-lg-12">
                 <div class="section-heading">
                   
-                  <h4><em id="nombrePrograma">ASISTENCIA ALUMNOS</em></h4>
+                  <h4 style="text-align:center;"><em id="nombrePrograma">ASISTENCIA ALUMNOS</em></h4>
                 </div>
                 
               </div>
               
               <div class="col-lg-12">
-                <h4><em>Ingresa DNI</em></h4>
-                <fieldset>
+                <h4 style="text-align:center;"><em>Ingresa DNI</em></h4>
+                <fieldset  style="margin-top: 30px;">
                   <input name="dni" id="dni" placeholder="Dni ">
                 </fieldset>
               </div>
           
               <div id="mensaje" style="color: green; margin-top: 10px;"></div>
-              <div class="col-lg-12" text-center>
+              <div class="d-flex justify-content-center mt-3" text-center>
                 <fieldset>
                   <button type="submit" id="form-submit" class="main-gradient-button">Registrar</button>
                 </fieldset>
               </div>
-              <h4><em>o</em></h4>
-              <h4><em>Escanea QR</em></h4>
+              <h4 style="margin-top: 50px; text-align:center;"><em>o</em></h4>
+              <h4 style="margin-top: 50px; text-align:center;"><em>Escanea QR</em></h4>
               <div class="container" style="text-align:center;">
                 
                 
             
                 <!-- Botón para abrir el lector -->
-                <div id="qr-section" style="margin-top:20px;">
+                <div id="qr-section"   class="d-flex justify-content-center mt-3" style="margin-top:20px;">
                   <button id="btnAbrirQR" type="button" style="
                       padding:12px 25px;
                       font-size:16px;
@@ -209,39 +209,49 @@ https://templatemo.com/tm-573-eduwell
           checkSection();
         });
         
-        // LLamando a la API de registrar
+       // Llamando a la API de guardar asistencia
       document.getElementById("form-submit").addEventListener("click", async (event) => {
-      event.preventDefault(); // Evita que el formulario recargue la página
+        event.preventDefault(); // Evita que el formulario recargue la página
 
-      // Obtener valores del formulario
-      const data = {
-        contenido: document.getElementById("dni").value
-      };
+        const data = {
+          contenido: document.getElementById("dni").value
+        };
 
-      try {
-        //const response = await fetch("http://localhost:8080/asistencia/guardar", {
-        const response = await fetch("https://proyectocetpro-production.up.railway.app/asistencia/guardar", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(data)
-        });
-        
-        if (response.ok) {
-          const result = await response.json();
-          document.getElementById("mensaje").innerText = "✅ Registro exitoso";
+        try {
+          //const response = await fetch("http://localhost:8080/asistencia/guardar", {
+          const response = await fetch("https://proyectocetpro-production.up.railway.app/asistencia/guardar", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+          });
 
-          
+          const result = await response.json(); // 👈 lee la respuesta como JSON
+          const mensajeEl = document.getElementById("mensaje");
+
+          if (response.ok) {
+            mensajeEl.innerText = result.mensaje || "✅ Registro exitoso";
+
+            // Cambiar color según mensaje
+            if (result.mensaje.includes("exitosamente")) {
+              mensajeEl.style.color = "green";
             } else {
-              document.getElementById("mensaje").innerText = "❌ Error al registrar, complete los datos obligatorios";
+              mensajeEl.style.color = "orange";
             }
-          
-          } catch (error) {
-            console.error("Error en la petición:", error);
-            document.getElementById("mensaje").innerText = "⚠️ No se pudo conectar con el servidor";
+
+          } else {
+            mensajeEl.innerText = result.mensaje || "❌ Error al registrar, complete los datos obligatorios";
+            mensajeEl.style.color = "red";
           }
-        });
+
+        } catch (error) {
+          console.error("Error en la petición:", error);
+          const mensajeEl = document.getElementById("mensaje");
+          mensajeEl.innerText = "⚠️ No se pudo conectar con el servidor";
+          mensajeEl.style.color = "red";
+        }
+      });
         // Lector QR
       document.getElementById("btnAbrirQR").addEventListener("click", function() {
         const readerDiv = document.getElementById("reader");

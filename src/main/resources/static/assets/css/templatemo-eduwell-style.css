@@ -1256,6 +1256,12 @@ p.copyright a {
   color: #fff;
 }
 
+section.contact-us .center-wrapper {
+  display: flex;
+  justify-content: center;   /* centra horizontalmente */
+  align-items: center;       /* centra verticalmente */
+  min-height: 100vh;         /* ocupa toda la pantalla */
+}
 /*
 ---------------------------------------------
 heading page
@@ -1865,6 +1871,7 @@ body {
     padding-right: 15px;
   }
 }
+
 
 @media (max-width: 767px) {
   .header-area .main-nav .nav li.has-sub ul.sub-menu {
