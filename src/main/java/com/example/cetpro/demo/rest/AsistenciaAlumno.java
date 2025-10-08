@@ -22,10 +22,10 @@ public class AsistenciaAlumno {
     private AsistenciaAlumnoRepository asistenciaAlumnoRepository;
 
     @PostMapping("/guardar")
-    public ResponseEntity<String> guardarQR(@RequestBody Map<String, String> datos) {
+    public Map<String, String> guardarQR(@RequestBody Map<String, String> datos) {
         String contenido = datos.get("contenido");
         if (contenido == null || contenido.isBlank()) {
-            return ResponseEntity.badRequest().body("QR vacío o inválido");
+            return Map.of("mensaje", "Registro vacio");
         }
         System.out.println("📩 Contenido recibido: " + contenido);
 
@@ -33,6 +33,6 @@ public class AsistenciaAlumno {
         qr.setContenido(contenido);
         asistenciaAlumnoRepository.save(qr);
 
-        return ResponseEntity.ok("QR guardado correctamente en la base de datos");
+        return Map.of("mensaje", "Registro guardado exitosamente");
     }
 }
