@@ -93,6 +93,41 @@ https://templatemo.com/tm-573-eduwell
                   <input type="password" name="name" id="contraseña" placeholder="Contraseña" autocomplete="on" required>
                 </fieldset>
               </div>
+
+              <div class="container" style="text-align:center;">
+                <h4><em id="nombrePrograma">Escáner de QR</em></h4>
+            
+                <!-- Botón para abrir el lector -->
+                <div id="qr-section" style="margin-top:20px;">
+                  <button id="btnAbrirQR" type="button" style="
+                      padding:12px 25px;
+                      font-size:16px;
+                      border:none;
+                      border-radius:8px;
+                      background-color:#007bff;
+                      color:white;
+                      cursor:pointer;">
+                    📷 Escanear QR
+                  </button>
+                </div>
+            
+                <!-- Lector QR -->
+                <div id="reader" style="
+                    width:300px;
+                    height:auto;
+                    margin:30px auto;
+                    display:none;
+                    border:2px solid #ddd;
+                    border-radius:10px;">
+                </div>
+            
+                <!-- Resultado del escaneo -->
+                <div id="resultado" style="margin-top:15px; font-size:18px; font-weight:bold; color:#333;">
+                  <!-- Aquí se mostrará el texto del QR -->
+                </div>
+              </div>
+              
+              
               <div id="mensaje" style="color: green; margin-top: 10px;"></div>
               <div class="col-lg-12">
                 <fieldset>
@@ -125,6 +160,8 @@ https://templatemo.com/tm-573-eduwell
     <script src="assets/js/video.js"></script>
     <script src="assets/js/slick-slider.js"></script>
     <script src="assets/js/custom.js"></script>
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+
     <script>
         //according to loftblog tut
         $('.nav li:first').addClass('active');
@@ -222,10 +259,75 @@ https://templatemo.com/tm-573-eduwell
             document.getElementById("mensaje").innerText = "⚠️ No se pudo conectar con el servidor";
           }
         });
+        // Lector QR
+document.getElementById("btnAbrirQR").addEventListener("click", function() {
+  const readerDiv = document.getElementById("reader");
+  readerDiv.style.display = "block";
+
+  const html5QrCode = new Html5Qrcode("reader");
+
+  const qrCodeSuccessCallback = (decodedText, decodedResult) => {
+    document.getElementById("resultado").innerText = "QR detectado: " + decodedText;
+
+    // Enviar al backend
+    fetch("https://proyectocetpro-production.up.railway.app/asistencia/guardar", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "Accept": "application/json"
+  },
+  body: JSON.stringify({ contenido: decodedText })
+})
+.then(async resp => {
+  const text = await resp.text();
+  if (!resp.ok) throw new Error(`Error ${resp.status}: ${text}`);
+  alert("✅ " + text);
+})
+.catch(err => {
+  console.error("Error al enviar al backend:", err);
+  alert("❌ Falló el guardado: " + err.message);
+});
 
 
-        
-  
+    // Detiene el escaneo después de leer
+    html5QrCode.stop().then(() => {
+      readerDiv.style.display = "none";
+    }).catch(err => console.error("Error al detener cámara:", err));
+  };
+
+  const config = { fps: 10, qrbox: { width: 250, height: 250 } };
+
+  Html5Qrcode.getCameras()
+    .then(devices => {
+      if (devices && devices.length > 0) {
+        // Buscar cámara trasera
+        let backCamera = devices.find(d =>
+          d.label.toLowerCase().includes("back") ||
+          d.label.toLowerCase().includes("rear")
+        );
+
+        // Si no encuentra una trasera, usa la última disponible
+        const cameraId = backCamera ? backCamera.id : devices[devices.length - 1].id;
+
+        // Inicia la cámara seleccionada
+        html5QrCode
+          .start(cameraId, config, qrCodeSuccessCallback)
+          .catch(err => {
+            console.error("⚠️ Error al iniciar cámara:", err);
+            alert("No se pudo iniciar la cámara. Verifica los permisos o prueba en otro navegador.");
+            readerDiv.style.display = "none";
+          });
+
+      } else {
+        alert("No se encontraron cámaras disponibles.");
+      }
+    })
+    .catch(err => {
+      console.error("Error al obtener cámaras:", err);
+      alert("No se pudo acceder a las cámaras. Verifica permisos del navegador.");
+    });
+});
+
     </script>
 
 </body>
